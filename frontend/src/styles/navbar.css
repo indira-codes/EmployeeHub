@@ -1,0 +1,265 @@
+/* ============================================================
+   NAVBAR — Sticky Glass Header
+   ============================================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 1rem 0;
+  background: rgba(10, 10, 26, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  animation: slideDown 0.5s var(--ease-smooth) both;
+  transition: all var(--transition-base);
+}
+
+/* Subtle bottom gradient line */
+.navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.4) 30%,
+    rgba(168, 85, 247, 0.4) 70%,
+    transparent 100%
+  );
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.03);
+}
+
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+  animation: gradientShift 6s ease infinite;
+  transition: all var(--transition-base);
+}
+
+.navbar-logo:hover .logo-icon {
+  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.6);
+  transform: rotate(-8deg) scale(1.05);
+}
+
+.logo-text {
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ============================================================
+   NAVIGATION LINKS
+   ============================================================ */
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link.active {
+  color: #fff;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Animated underline (only on hover, non-active) */
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transform: translateX(-50%);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover::before {
+  width: 30%;
+}
+
+.nav-link.active::before {
+  display: none;
+}
+
+/* ============================================================
+   CTA BUTTON
+   ============================================================ */
+
+.navbar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navbar-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.7s var(--ease-smooth);
+}
+
+.navbar-cta:hover {
+  transform: translateY(-2px);
+  background-position: 100% 100%;
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5);
+}
+
+.navbar-cta:hover::after {
+  transform: translateX(100%);
+}
+
+.navbar-cta:active {
+  transform: translateY(0);
+}
+
+.cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform var(--transition-base);
+}
+
+.navbar-cta:hover .cta-icon {
+  transform: rotate(90deg) scale(1.15);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+
+  .logo-text {
+    display: none; /* Sirf icon dikhega mobile pe */
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .navbar-cta span:not(.cta-icon) {
+    display: none; /* Sirf "+" icon dikhega mobile pe */
+  }
+
+  .navbar-cta {
+    padding: 0.6rem 0.85rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar-nav {
+    padding: 0.25rem;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}

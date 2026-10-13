@@ -1,0 +1,184 @@
+/* ============================================================
+   FORM WRAPPER & CONTAINER
+   ============================================================ */
+
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  animation: fadeIn 0.5s var(--ease-smooth) both;
+}
+
+/* Form container (glass card wrapper) */
+.form-container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 2.5rem 2.25rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  animation: scaleIn 0.5s var(--ease-smooth) both;
+}
+
+/* Animated top gradient border */
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* Subtle inner glow */
+.form-container::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 200px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(99, 102, 241, 0.15),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.form-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   FORM HEADER
+   ============================================================ */
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: slideUp 0.5s var(--ease-smooth) both;
+}
+
+.form-header h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.4rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   FORM ACTIONS (Submit + Cancel)
+   ============================================================ */
+
+.employee-form-submit {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+/* Form actions row (Submit + Cancel side by side) */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+/* ============================================================
+   SUBMIT BUTTON SPINNER
+   ============================================================ */
+
+.btn-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   FORM FIELD STAGGER ANIMATION
+   ============================================================ */
+/* Har form-group thoda delay ke saath fade in hoga */
+
+.form-container .form-group:nth-child(1) { animation-delay: 0.05s; }
+.form-container .form-group:nth-child(2) { animation-delay: 0.1s; }
+.form-container .form-group:nth-child(3) { animation-delay: 0.15s; }
+.form-container .form-group:nth-child(4) { animation-delay: 0.2s; }
+
+/* ============================================================
+   FORM FOOTER (optional link like "Cancel")
+   ============================================================ */
+
+.form-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.form-footer a,
+.form-footer button {
+  color: var(--accent-primary);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.form-footer a:hover,
+.form-footer button:hover {
+  color: var(--accent-secondary);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .form-container {
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .form-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .employee-form-submit {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}

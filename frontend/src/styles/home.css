@@ -1,0 +1,312 @@
+/* ============================================================
+   HOME PAGE — Hero, Features, Stats
+   ============================================================ */
+
+.home-page {
+  padding-top: 3rem;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1rem 5rem;
+  overflow: hidden;
+}
+
+/* Floating orbs (decorative) */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-orb-1 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.7), transparent 70%);
+  top: -120px;
+  left: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.6), transparent 70%);
+  top: 40px;
+  right: -120px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.hero-orb-3 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.5), transparent 70%);
+  bottom: -80px;
+  left: 40%;
+  animation: float 12s ease-in-out infinite;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge (top) */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.5rem;
+  animation: slideDown 0.6s var(--ease-smooth) both;
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 12px var(--accent-green);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Title */
+.hero-title {
+  font-size: clamp(2rem, 5.5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+  max-width: 900px;
+  animation: slideUp 0.7s var(--ease-smooth) 0.1s both;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  animation: slideUp 0.7s var(--ease-smooth) 0.2s both;
+}
+
+/* Actions (buttons) */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: slideUp 0.7s var(--ease-smooth) 0.3s both;
+}
+
+/* Large button variant */
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   FEATURES SECTION
+   ============================================================ */
+
+.features {
+  margin-top: 2rem;
+  padding: 3rem 0;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: slideUp 0.6s var(--ease-smooth) both;
+}
+
+.features-header h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: 0.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.features-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Feature card */
+.feature-card {
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  animation: slideUp 0.6s var(--ease-smooth) both;
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  animation: gradientShift 6s ease infinite;
+  transition: transform var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+  transform: rotate(-8deg) scale(1.1);
+  box-shadow: 0 12px 32px rgba(168, 85, 247, 0.5);
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+
+.stats-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  margin: 3rem 0 1rem;
+  flex-wrap: wrap;
+  animation: slideUp 0.7s var(--ease-smooth) both;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 100px;
+}
+
+.stat-value {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 5s ease infinite;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2.5rem 0.5rem 3.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .features {
+    padding: 2rem 0;
+  }
+
+  .features-header {
+    margin-bottom: 2rem;
+  }
+
+  .stats-strip {
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .stat {
+    flex: 1 1 40%;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .feature-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
+}
