@@ -259,22 +259,21 @@ Make sure you have the following installed:
    http://localhost:5173
    ```
 
-> ⚠️ **Make sure the backend is running** before using the frontend, or you'll see "Cannot reach server".
+
 
 ---
 
 ## 🖼 Screenshots
 
-> _Add your screenshots here_
+> 
 
-| Home Page | Employee List |
-|-----------|---------------|
-| ![Home](docs/screenshots/home.png) | ![List](docs/screenshots/list.png) |
 
-| Add Employee | Edit Employee |
-|--------------|---------------|
-| ![Add](docs/screenshots/add.png) | ![Edit](docs/screenshots/edit.png) |
+![img_1.png](img_1.png)
 
+
+ ![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
 ---
 
 ## 👩‍💻 Author
